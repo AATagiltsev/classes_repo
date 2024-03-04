@@ -18,7 +18,7 @@ test('maxName', () => {
 
 test('typeError', () => {
   const received = () => new Character('Name', 'BlablablaType');
-  expect(received).toThrow(new Error("Должен быть один из типов: ['Bowman', 'Daemon', 'Magician', 'Swordsman', 'Undead', 'Zombie']"));
+  expect(received).toThrow(new Error("Должен быть один из типов: " + Character.typesOfCharacter));
 });
 
 test('Zombie parameters', () => {

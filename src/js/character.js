@@ -1,13 +1,15 @@
 export default class Character {
+    static typesOfCharacter = ['Bowman', 'Daemon', 'Magician', 'Swordsman', 'Undead', 'Zombie']
+
     constructor(name, type) {
         if (typeof (name) !== 'string' || name.length < 2 || name.length > 10) {
             throw new Error('строка, min - 2 символа, max - 10');
         }
 
-        if (!['Bowman', 'Daemon', 'Magician', 'Swordsman', 'Undead', 'Zombie'].includes(type)) {
-            throw new Error("Должен быть один из типов: ['Bowman', 'Daemon', 'Magician', 'Swordsman', 'Undead', 'Zombie']");
+        if (!Character.typesOfCharacter.includes(type)) {
+            throw new Error("Должен быть один из типов: " + Character.typesOfCharacter);
         }
-
+        
         this.name = name;
         this.type = type;
         this.health = 100;
@@ -15,7 +17,6 @@ export default class Character {
         this.attack = null;
         this.defence = null;
     }
-
     levelUp() {
         if (this.health === 0) {
             throw new Error('Показатель жизни равен 0');
